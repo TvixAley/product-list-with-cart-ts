@@ -1,0 +1,35 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-300);
+}
+
+.media {
+  position: relative;
+  margin-bottom: var(--space-200);
+}
+
+.image {
+  width: 100%;
+  border-radius: var(--radius-100);
+  border: var(--border-width) solid transparent;
+}
+
+.imageActive {
+  border-color: var(--color-border-active);
+}
+
+.control {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}
+
+.category {
+  color: var(--color-text-secondary);
+}
+
+.price {
+  color: var(--color-accent);
+}
