@@ -1,0 +1,50 @@
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-200);
+    padding-block: var(--space-200);
+    border-bottom: var(--border-width) solid var(--color-border-subtle);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-100);
+}
+
+.meta {
+    display: flex;
+    gap: var(--space-100);
+}
+
+.quantity {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+}
+
+.unit {
+    color: var(--color-text-secondary);
+}
+
+.total {
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.remove {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--radius-full);
+    border: var(--border-width) solid currentColor;
+    color: var(--color-border-default);
+    transition: color ease-in-out var(--transition-duration);
+}
+
+.remove:hover,
+.remove:focus-visible {
+    color: var(--color-text-primary);
+}
