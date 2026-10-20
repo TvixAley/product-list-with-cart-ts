@@ -1,19 +1,28 @@
-// src/components/Cart/Cart.tsx
 import { useCartDispatch } from '@/context/useCart';
 import { useCartSummary } from '@/context/useCartSummary';
 import { formatPrice } from '@/lib/formatPrice';
 import { CartItemRow } from '../CartItemRow/CartItemRow';
+import emptyCartImage from '@/assets/icons/illustration-empty-cart.svg';
+import carbonNeutralIcon from '@/assets/icons/icon-carbon-neutral.svg';
+import styles from './Cart.module.css';
 
 export function Cart() {
   const { lines, totalCount, totalPrice } = useCartSummary();
   const dispatch = useCartDispatch();
 
   return (
-    <aside>
-      <h2 className="text-preset-2">Your Cart ({totalCount})</h2>
+    <aside className={styles.cart}>
+      <h2 className={`${styles.title} text-preset-2`}>
+        Your Cart ({totalCount})
+      </h2>
 
       {lines.length === 0 ? (
-        <p>Your added items will appear here</p>
+        <div className={styles.empty}>
+          <img src={emptyCartImage} alt="" width="128" height="128" />
+          <p className="text-preset-4-bold">
+            Your added items will appear here
+          </p>
+        </div>
       ) : (
         <>
           <ul>
@@ -29,11 +38,19 @@ export function Cart() {
               />
             ))}
           </ul>
-          <p>
-            <span>Order Total</span>
-            <strong>{formatPrice(totalPrice)}</strong>
+          <p className={styles.totalRow}>
+            <span className="text-preset-4">Order Total</span>
+            <strong className="text-preset-2">{formatPrice(totalPrice)}</strong>
           </p>
-          <button>Confirm Order</button>
+          <p className={`${styles.delivery} text-preset-4`}>
+            <img src={carbonNeutralIcon} alt="" />
+            <span>
+              This is a <strong>carbon-neutral</strong> delivery
+            </span>
+          </p>
+          <button className={`${styles.confirm} text-preset-3`}>
+            Confirm Order
+          </button>
         </>
       )}
     </aside>
