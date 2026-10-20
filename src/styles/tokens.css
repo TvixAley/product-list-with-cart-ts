@@ -51,9 +51,13 @@
   --radius-full: 999px;
 
   --border-width: 1px;
+  --border-width-active: 2px;
 
   --color-border-subtle: var(--rose-100);
   --color-text-muted: var(--rose-400);
 
   --cart-width: 384px;
+  --control-height: 2.75rem;
+
+  --transition-duration: 0.2s;
 }

@@ -1,22 +1,21 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-300);
 }
 
 .media {
   position: relative;
-  margin-bottom: var(--space-200);
+  margin-bottom: calc(var(--control-height) / 2 + var(--space-300));
 }
 
 .image {
   width: 100%;
   border-radius: var(--radius-100);
-  border: var(--border-width) solid transparent;
 }
 
 .imageActive {
-  border-color: var(--color-border-active);
+  outline: var(--border-width-active) solid var(--color-border-active);
+  outline-offset: calc(var(--border-width-active) * -1);
 }
 
 .control {
@@ -24,6 +23,12 @@
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 50%);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-50);
 }
 
 .category {
