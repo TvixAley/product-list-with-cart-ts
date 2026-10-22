@@ -37,7 +37,7 @@ export function QuantityControl({
       >
         <DecrementIcon aria-hidden="true" />
       </button>
-      <span>{quantity}</span>
+      <span aria-live="polite">{quantity}</span>
       <button
         className={styles.step}
         onClick={onIncrement}
