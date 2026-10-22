@@ -11,11 +11,13 @@
 .image {
   width: 100%;
   border-radius: var(--radius-100);
+  outline: var(--border-width-active) solid transparent;
+  outline-offset: calc(var(--border-width-active) * -1);
+  transition: outline-color var(--transition-duration) ease-in-out;
 }
 
 .imageActive {
-  outline: var(--border-width-active) solid var(--color-border-active);
-  outline-offset: calc(var(--border-width-active) * -1);
+  outline-color: var(--color-border-active);
 }
 
 .control {
