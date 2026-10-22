@@ -1,5 +1,7 @@
 import addToCartIcon from '@/assets/icons/icon-add-to-cart.svg';
 import styles from './QuantityControl.module.css';
+import IncrementIcon from '@/assets/icons/icon-increment-quantity.svg?react';
+import DecrementIcon from '@/assets/icons/icon-decrement-quantity.svg?react';
 
 interface QuantityControlProps {
   quantity: number;
@@ -33,7 +35,7 @@ export function QuantityControl({
         onClick={onDecrement}
         aria-label="Decrease quantity"
       >
-        −
+        <DecrementIcon aria-hidden="true" />
       </button>
       <span>{quantity}</span>
       <button
@@ -41,7 +43,7 @@ export function QuantityControl({
         onClick={onIncrement}
         aria-label="Increase quantity"
       >
-        +
+        <IncrementIcon aria-hidden="true" />
       </button>
     </div>
   );
