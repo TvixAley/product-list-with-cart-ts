@@ -6,7 +6,7 @@ import { ProductList } from '@/components/ProductList/ProductList.tsx';
 export default function App() {
   return (
     <main className={styles.layout}>
-      <section>
+      <section className={styles.content}>
         <h1 className="text-preset-1">Desserts</h1>
         <ProductList products={products} />
       </section>

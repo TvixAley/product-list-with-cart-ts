@@ -5,6 +5,12 @@
   grid-template-columns: 1fr;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400); /* 32px */
+}
+
 @media (min-width: 1024px) {
   .layout {
     grid-template-columns: 1fr var(--cart-width);
