@@ -1,13 +1,13 @@
 import { useCartDispatch } from '@/context/useCart';
 import { useCartSummary } from '@/context/useCartSummary';
-import { formatPrice } from '@/lib/formatPrice';
-import { CartItemRow } from '../CartItemRow/CartItemRow';
 import emptyCartImage from '@/assets/icons/illustration-empty-cart.svg';
 import carbonNeutralIcon from '@/assets/icons/icon-carbon-neutral.svg';
 import styles from './Cart.module.css';
 import { useState } from 'react';
 import { OrderConfirmedModal } from '@/components/OrderConfirmedModal/OrderConfirmedModal.tsx';
 import { Button } from '@/components/Button/Button.tsx';
+import { OrderTotal } from '@/components/OrderTotal/OrderTotal.tsx';
+import { OrderLine } from '@/components/OrderLine/OrderLine.tsx';
 
 export function Cart() {
   const { lines, totalCount, totalPrice } = useCartSummary();
@@ -31,8 +31,9 @@ export function Cart() {
         <>
           <ul>
             {lines.map(({ product, quantity, total }) => (
-              <CartItemRow
+              <OrderLine
                 key={product.id}
+                variant="cart"
                 product={product}
                 quantity={quantity}
                 total={total}
@@ -42,10 +43,7 @@ export function Cart() {
               />
             ))}
           </ul>
-          <p className={styles.totalRow}>
-            <span className="text-preset-4">Order Total</span>
-            <strong className="text-preset-2">{formatPrice(totalPrice)}</strong>
-          </p>
+          <OrderTotal value={totalPrice} />
           <p className={`${styles.delivery} text-preset-4`}>
             <img src={carbonNeutralIcon} alt="" />
             <span>

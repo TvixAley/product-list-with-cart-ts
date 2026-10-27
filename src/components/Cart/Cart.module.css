@@ -21,12 +21,6 @@
   text-align: center;
 }
 
-.totalRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .delivery {
   display: flex;
   align-items: center;

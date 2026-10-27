@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { useCartDispatch } from '@/context/useCart';
 import { useCartSummary } from '@/context/useCartSummary';
-import { formatPrice } from '@/lib/formatPrice';
 import orderConfirmedIcon from '@/assets/icons/icon-order-confirmed.svg';
 import styles from './OrderConfirmedModal.module.css';
 import { Button } from '@/components/Button/Button.tsx';
+import { OrderLine } from '@/components/OrderLine/OrderLine.tsx';
+import { OrderTotal } from '@/components/OrderTotal/OrderTotal.tsx';
 
 interface OrderConfirmedModalProps {
   open: boolean;
@@ -56,30 +57,16 @@ export function OrderConfirmedModal({
         <div className={styles.summary}>
           <ul>
             {lines.map(({ product, quantity, total }) => (
-              <li key={product.id} className={styles.row}>
-                <img
-                  className={styles.thumb}
-                  src={product.image.thumbnail}
-                  alt=""
-                />
-                <div className={styles.details}>
-                  <h3 className="text-preset-4-bold">{product.name}</h3>
-                  <p className={`${styles.numbers} text-preset-4`}>
-                    <span className={styles.quantity}>{quantity}x</span>
-                    <span className={styles.unit}>
-                      @ {formatPrice(product.price)}
-                    </span>
-                  </p>
-                </div>
-                <span className="text-preset-3">{formatPrice(total)}</span>
-              </li>
+              <OrderLine
+                key={product.id}
+                variant="summary"
+                product={product}
+                quantity={quantity}
+                total={total}
+              />
             ))}
           </ul>
-
-          <p className={styles.totalRow}>
-            <span className="text-preset-4">Order Total</span>
-            <strong className="text-preset-2">{formatPrice(totalPrice)}</strong>
-          </p>
+          <OrderTotal value={totalPrice} />
         </div>
 
         <Button onClick={handleStartNewOrder}>Start New Order</Button>
