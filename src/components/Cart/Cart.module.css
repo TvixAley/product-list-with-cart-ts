@@ -21,23 +21,6 @@
   text-align: center;
 }
 
-.total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.confirm {
-  padding: var(--space-200);
-  border-radius: var(--radius-full);
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  transition: background ease-in-out var(--transition-duration);
-}
-.confirm:hover {
-  background: var(--color-accent-hover);
-}
-
 .totalRow {
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,17 @@
+.button {
+  padding: var(--space-200);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  transition: background ease-in-out var(--transition-duration);
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--color-accent-hover);
+}
+
+.button:focus-visible {
+  outline: var(--border-width-active) solid var(--color-accent);
+  outline-offset: 2px;
+}

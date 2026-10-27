@@ -7,6 +7,7 @@ import carbonNeutralIcon from '@/assets/icons/icon-carbon-neutral.svg';
 import styles from './Cart.module.css';
 import { useState } from 'react';
 import { OrderConfirmedModal } from '@/components/OrderConfirmedModal/OrderConfirmedModal.tsx';
+import { Button } from '@/components/Button/Button.tsx';
 
 export function Cart() {
   const { lines, totalCount, totalPrice } = useCartSummary();
@@ -51,12 +52,7 @@ export function Cart() {
               This is a <strong>carbon-neutral</strong> delivery
             </span>
           </p>
-          <button
-            className={`${styles.confirm} text-preset-3`}
-            onClick={() => setIsConfirmOpen(true)}
-          >
-            Confirm Order
-          </button>
+          <Button onClick={() => setIsConfirmOpen(true)}>Confirm Order</Button>
         </>
       )}
       <OrderConfirmedModal

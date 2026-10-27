@@ -100,16 +100,3 @@
   align-items: center;
   padding-top: var(--space-300);
 }
-
-.confirm {
-  padding: var(--space-200);
-  border-radius: var(--radius-full);
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  transition: background ease-in-out var(--transition-duration);
-}
-
-.confirm:hover,
-.confirm:focus-visible {
-  background: var(--color-accent-hover);
-}

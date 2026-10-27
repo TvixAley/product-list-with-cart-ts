@@ -4,6 +4,7 @@ import { useCartSummary } from '@/context/useCartSummary';
 import { formatPrice } from '@/lib/formatPrice';
 import orderConfirmedIcon from '@/assets/icons/icon-order-confirmed.svg';
 import styles from './OrderConfirmedModal.module.css';
+import { Button } from '@/components/Button/Button.tsx';
 
 interface OrderConfirmedModalProps {
   open: boolean;
@@ -81,12 +82,7 @@ export function OrderConfirmedModal({
           </p>
         </div>
 
-        <button
-          className={`${styles.confirm} text-preset-3`}
-          onClick={handleStartNewOrder}
-        >
-          Start New Order
-        </button>
+        <Button onClick={handleStartNewOrder}>Start New Order</Button>
       </div>
     </dialog>
   );
