@@ -11,11 +11,14 @@
   font: var(--font-weight-semibold) var(--text-3-size)/var(--text-3-lh)
     var(--font-family);
 }
+.text-preset-3-regular {
+  font: var(--font-weight-regular) var(--text-3-size)/var(--text-3-lh)
+    var(--font-family);
+}
 .text-preset-4 {
   font: var(--font-weight-regular) var(--text-4-size)/var(--text-4-lh)
     var(--font-family);
 }
-
 .text-preset-4-bold {
   font: var(--font-weight-semibold) var(--text-4-size)/var(--text-4-lh)
     var(--font-family);
@@ -25,4 +28,8 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-family);
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
 }

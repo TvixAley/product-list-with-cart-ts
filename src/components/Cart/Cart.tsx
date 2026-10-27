@@ -5,10 +5,13 @@ import { CartItemRow } from '../CartItemRow/CartItemRow';
 import emptyCartImage from '@/assets/icons/illustration-empty-cart.svg';
 import carbonNeutralIcon from '@/assets/icons/icon-carbon-neutral.svg';
 import styles from './Cart.module.css';
+import { useState } from 'react';
+import { OrderConfirmedModal } from '@/components/OrderConfirmedModal/OrderConfirmedModal.tsx';
 
 export function Cart() {
   const { lines, totalCount, totalPrice } = useCartSummary();
   const dispatch = useCartDispatch();
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   return (
     <aside className={styles.cart}>
@@ -48,11 +51,18 @@ export function Cart() {
               This is a <strong>carbon-neutral</strong> delivery
             </span>
           </p>
-          <button className={`${styles.confirm} text-preset-3`}>
+          <button
+            className={`${styles.confirm} text-preset-3`}
+            onClick={() => setIsConfirmOpen(true)}
+          >
             Confirm Order
           </button>
         </>
       )}
+      <OrderConfirmedModal
+        open={isConfirmOpen}
+        onClose={() => setIsConfirmOpen(false)}
+      />
     </aside>
   );
 }

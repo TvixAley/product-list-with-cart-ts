@@ -31,6 +31,7 @@
   --color-success: var(--green);
   --color-text-on-accent: var(--white);
   --color-surface-muted: var(--rose-50);
+  --color-overlay: color-mix(in srgb, var(--black), transparent 50%);
 
   --font-family: 'Red Hat Text', sans-serif;
   --font-weight-regular: 400;
