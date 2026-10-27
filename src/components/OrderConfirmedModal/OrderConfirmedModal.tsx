@@ -63,7 +63,7 @@ export function OrderConfirmedModal({
                 />
                 <div className={styles.details}>
                   <h3 className="text-preset-4-bold">{product.name}</h3>
-                  <p className={`${styles.numbers} "text-preset-4"`}>
+                  <p className={`${styles.numbers} text-preset-4`}>
                     <span className={styles.quantity}>{quantity}x</span>
                     <span className={styles.unit}>
                       @ {formatPrice(product.price)}
