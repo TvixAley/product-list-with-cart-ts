@@ -5,6 +5,7 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/product-list-with-cart-ts/',
   plugins: [react(), svgr({ include: '**/*.svg?react' })],
   resolve: {
     alias: {
