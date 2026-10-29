@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import addToCartIcon from '@/assets/icons/icon-add-to-cart.svg';
 import styles from './QuantityControl.module.css';
 import IncrementIcon from '@/assets/icons/icon-increment-quantity.svg?react';
@@ -16,11 +17,33 @@ export function QuantityControl({
   onIncrement,
   onDecrement,
 }: QuantityControlProps) {
+  const addRef = useRef<HTMLButtonElement>(null);
+  const incrementRef = useRef<HTMLButtonElement>(null);
+  const pendingFocus = useRef<'add' | 'increment' | null>(null);
+
+  useEffect(() => {
+    if (pendingFocus.current === 'increment') incrementRef.current?.focus();
+    if (pendingFocus.current === 'add') addRef.current?.focus();
+    pendingFocus.current = null;
+  }, [quantity]);
+
+  function handleAdd() {
+    pendingFocus.current = 'increment';
+    onAdd();
+  }
+
+  function handleDecrement() {
+    if (quantity === 1) pendingFocus.current = 'add';
+    onDecrement();
+  }
+
   if (quantity === 0) {
     return (
       <button
+        ref={addRef}
+        type="button"
         className={`${styles.control} ${styles.add} text-preset-4-bold`}
-        onClick={onAdd}
+        onClick={handleAdd}
       >
         <img className={styles.icon} src={addToCartIcon} alt="" />
         Add to Cart
@@ -31,14 +54,17 @@ export function QuantityControl({
   return (
     <div className={`${styles.control} ${styles.stepper} text-preset-4-bold`}>
       <button
+        type="button"
         className={styles.step}
-        onClick={onDecrement}
+        onClick={handleDecrement}
         aria-label="Decrease quantity"
       >
         <DecrementIcon aria-hidden="true" />
       </button>
       <span aria-live="polite">{quantity}</span>
       <button
+        ref={incrementRef}
+        type="button"
         className={styles.step}
         onClick={onIncrement}
         aria-label="Increase quantity"
