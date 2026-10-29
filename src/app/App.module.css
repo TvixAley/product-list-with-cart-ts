@@ -11,6 +11,12 @@
   gap: var(--space-400); /* 32px */
 }
 
+@media (min-width: 640px) {
+  .layout {
+    padding: var(--space-500);
+  }
+}
+
 @media (min-width: 1024px) {
   .layout {
     grid-template-columns: 1fr var(--cart-width);
